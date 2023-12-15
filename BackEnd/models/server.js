@@ -7,6 +7,7 @@ import usuarioRouter from "../routes/usuarios.routes.js"
 import loginRouter from '../routes/login.routes.js';
 import candidatosRouter from "../routes/candidato.routes.js";
 import solicitudesRouter from "../routes/solicitudes.routes.js";
+import searchRouter from '../routes/search.routes.js'
 
 dotenv.config()
 
@@ -30,6 +31,7 @@ class Server{
         this.app.use("/login", loginRouter);
         this.app.use("/candidatos", candidatosRouter)
         this.app.use("/solicitudes", solicitudesRouter)
+        this.app.use("/search", searchRouter)
     }
 
     listen(){

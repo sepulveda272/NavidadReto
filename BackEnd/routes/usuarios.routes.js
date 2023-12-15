@@ -14,7 +14,13 @@ routes.get("/",[
     isAdminRole,
     validateDocuments
 ],getUsuario);
-routes.post("/add", postUsuario)
+routes.post("/add",[
+    check('nombre','Nombre es obligatorio').not().isEmpty(),
+    check('tipo_usuario',"Tipo Usuario es obligatorio").not().isEmpty(),
+    check('email','Email es obligatorio').isEmail(),
+    check('telefono','Telefono es obligatorio').not().isEmpty(),
+    check('password','Password es obligatorio y Debe tener 6 digitos o más').not().isEmpty().isLength({min:6}),
+], postUsuario)
 routes.delete("/:id",[
     validateJWT,
     isAdminRole,

@@ -13,6 +13,11 @@ routes.get("/", [
     validateDocuments
 ], getSolicitudes)
 routes.post("/add", [
+    check('nombre','Nombre es obligatorio').not().isEmpty(),
+    check('Apellido','Apellido es obligatorio').not().isEmpty(),
+    check('empresa','Empresa es obligatorio').not().isEmpty(),
+    check('email_contacto','Email es obligatorio').not().isEmpty().isEmail(),
+    check('telefono_contacto','Telefono Contacto es obligatorio').not().isEmpty(),
     validateJWT,
     validateDocuments
 ], postSolicitud)

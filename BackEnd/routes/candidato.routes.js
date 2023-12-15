@@ -13,9 +13,24 @@ routes.get("/solicitados", [
     isAdminRole,
     validateDocuments
 ],getCandidatosS)
-routes.post("/add", postCandidatos)
+routes.post("/add",[
+    check('nombre', 'Nombre es Olbigatorio').not().isEmpty(),
+    check('apellido','Apellido es obligatorio').not().isEmpty(),
+    check('Especialidad','Especialidad es obligatorio').not().isEmpty(),
+    check('NivelSeniority','NivelSeniority es obligatorio').not().isEmpty(),
+    check('Pais','Pais es obligatorio').not().isEmpty(),
+    check('Departamento','Departamento es obligatorio').not().isEmpty(),
+    check('tecnologia','Tecnologia es obligatorio').not().isEmpty(),
+    check('salario','Salario es obligatorio').not().isEmpty(),
+    check('NivelIngles','Nivel Ingles es obligatorio').not().isEmpty(),
+    check('biografia','Biografia es obligatorio').not().isEmpty(),
+    validateJWT,
+    isAdminRole,
+    validateDocuments
+], postCandidatos)
 routes.delete("/:id", [
     validateJWT,
+    isAdminRole,
     validateDocuments
 ], solicitadoCandidato)
 routes.delete("/borro/:id", [
