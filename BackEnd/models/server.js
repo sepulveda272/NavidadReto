@@ -5,6 +5,8 @@ import cookieParser from 'cookie-parser'
 
 import usuarioRouter from "../routes/usuarios.routes.js"
 import loginRouter from '../routes/login.routes.js';
+import candidatosRouter from "../routes/candidato.routes.js";
+import solicitudesRouter from "../routes/solicitudes.routes.js";
 
 dotenv.config()
 
@@ -26,6 +28,8 @@ class Server{
     routes(){
         this.app.use("/usuarios", usuarioRouter);
         this.app.use("/login", loginRouter);
+        this.app.use("/candidatos", candidatosRouter)
+        this.app.use("/solicitudes", solicitudesRouter)
     }
 
     listen(){

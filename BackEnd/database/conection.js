@@ -13,8 +13,8 @@ const conection = async () => {
       Stack: db.collection("Stack"),
       Solicitud: db.collection("Solicitud"),
       Rol: db.collection("Rol"),
-      Nivel_Seniority: db.collection("Nivel_Seniority"),
-      Nivel_Ingles: db.collection("Nivel_Ingles"),
+      NivelSeniority: db.collection("NivelSeniority"),
+      NivelIngles: db.collection("NivelIngles"),
       Especialidad: db.collection("Especialidad"),
       Candidato: db.collection("Candidato"),
     };
