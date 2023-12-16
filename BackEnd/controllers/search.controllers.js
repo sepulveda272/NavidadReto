@@ -1,52 +1,58 @@
 import { response } from "express";
 import { ObjectId } from "mongodb";
-import { client, conection } from "../database/conection.js";
+import { conection } from "../database/conection.js";
 
-const allowedCollections = [
-    "Candidato"
-]
+const allowedCollections = ["Candidato"];
 
-const searchCandidatos = async (criterio = "", res = response) => {
-    const isMongoId = ObjectId.isValid(criterio);
+const searchCandidatosEspecialidad = async (criterio = "", res = response) => {
+  const isMongoId = ObjectId.isValid(criterio);
 
-    const collection = (await conection()).Candidato;
+  try {
+    const candidatoDB = (await conection()).Candidato;
 
     if (isMongoId) {
-        const candidato = await collection.findOne({ _id: new ObjectId(criterio) });
-        console.log(candidato);
-        return res.json({
-            result: (candidato) ? [candidato] : [],
-        });
+      const candidato = await candidatoDB.findById(criterio);
+      return res.json({
+        result: (candidato) ? [candidato] : [],
+      });
     }
 
-    const regex = new RegExp(criterio, 'i');
-    const candidatos = await collection.find({
-        $or: [{ examen: regex }],
-        $and: [{ estado: true }],
+    const regex = new RegExp(criterio, "i");
+    const candidatos = await candidatoDB.find({
+      $or: [{ Especialidad: regex }],
+      $and: [{ estado: ("Activo") }],
     }).toArray();
 
     res.json({
-        result: candidatos,
+      result: candidatos,
     });
+  } catch (error) {
+    console.error("Error en la búsqueda de candidatos:", error);
+    res.status(500).json({
+      msg: "Hubo un error en la búsqueda de candidatos",
+    });
+  }
 };
 
-export const search = ( req, res = response ) => {
-    const { coleccion, criterio } = req.params;
+export const searchEspecialidad = async (req, res = response) => {
+  const { coleccion, criterio } = req.params;
 
-    if (!allowedCollections.includes(coleccion)){
-        return res.status(400).json({
-            msg: `El buscador solo permite las colecciones: ${allowedCollections}`
-        })
-    }
+  if (!allowedCollections.includes(coleccion)) {
+    return res.status(400).json({
+      msg: `El buscador solo permite las colecciones: ${allowedCollections}`,
+    });
+  }
 
-    switch (coleccion){
-        case 'Candidato':
-            searchCandidatos(criterio, res)
-        break;
+  switch (coleccion) {
+    case "Candidato":
+      await searchCandidatosEspecialidad(criterio, res);
+      break;
 
-        default:
-            res.status(500).json({
-                msg: 'This search doesnt exists'
-            })
-    }
-}
+    default:
+      res.status(500).json({
+        msg: "Esta búsqueda no existe",
+      });
+  }
+};
+
+
