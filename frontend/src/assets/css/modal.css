@@ -1,0 +1,74 @@
+.contenedor-modal{
+    margin: 30px 70px 30px 70px;
+    border-radius: 10px;
+    border: none;
+    text-align: left;
+}
+
+.cerrar-modal{
+    position: absolute;
+    top: 1%;
+    right: 1%;
+    background-color: red;
+    border: none;
+    border-radius: 10px;
+    font-size: 20px;
+    color: white;
+    padding: 8px;
+}
+
+.cerrar-modal:hover{
+    background-color: white;
+    color: black;
+    transition: 0.5s;
+}
+
+.contenido-modal{
+    margin: 100px;
+}
+
+.titulo-modal{
+    background-color: rgb(47, 47, 165);
+    color: white;
+    text-align: center;
+}
+
+.carta-presentacion{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 100px;
+    padding: 40px;
+}
+
+.contenedor-imagen-modal{
+    border-radius: 8px;
+    box-shadow: 1px 0px 1px 1px rgba(0, 0, 0, 0.425);
+   
+}
+
+.contenedor-imagen-modal img{
+    max-width: 350px;
+    min-width: 300px;
+    min-height: 350px;
+    max-height: 350;
+}
+
+
+.items-candidato-modal ul{
+    max-width: 350px;
+    min-width: 600px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    list-style: none;
+    padding: 2rem 2rem 2rem 2rem;
+    border: 1px rgba(0, 0, 0, 0.699) solid;
+    border-radius: 10px;
+
+}
+
+hr{
+    color: white;
+}
