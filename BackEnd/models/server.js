@@ -22,7 +22,10 @@ class Server{
     }
 
     middlewares(){
-        this.app.use(cors());
+        this.app.use(cors({
+            origin: 'http://localhost:3000', // Reemplaza con el dominio de tu aplicación React
+            credentials: true,
+          }));
         this.app.use(express.json());
     }
 

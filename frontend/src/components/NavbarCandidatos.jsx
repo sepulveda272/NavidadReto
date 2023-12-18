@@ -17,34 +17,36 @@ export const NavbarCandidatos = () => {
   const showHola = localUser && localUser.rol === '65794ef885858c0baa350e4a';
   console.log(showHola);
 
+  const storedToken = localStorage.getItem('token');
+  const localToken = storedToken ? JSON.parse(storedToken) : null;
+  const showNoToken = !localToken; 
+
+  const handleLogout = () => {
+    // Elimina el token del localStorage
+    localStorage.clear()
+  
+    // Elimina la cookie (puedes usar un método adecuado para tu aplicación)
+    document.cookie = 'token=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
+  
+    // Redirecciona al usuario al inicio (puedes ajustar la ruta según tu estructura de rutas)
+    window.location.href = '/';
+  };
+
   return (
     <div className='Navbar1'>
       <div className="navbar-inverse" role="navigation">
         <div className={`container ${menuOpen ? 'mobile-menu active' : ''}`}>
-          <img src={logo} width="200px" height="px" />
+          <img src={logo} alt='no sirve' width="200px" />
           
-          <div className="navbar-header">
-            <select name="select" className="custom-select">
-              <option value="value3">Servicios</option>
-              <option value="value3">Employee Experience</option>
-              <option value="value1">Seleccion de personal</option>
-              <option value="value2">Seleccion IT</option>
-              <option value="value3">Capacitacion y desarrollo</option>
-              <option value="value3">Asesoria en Gestion Humana</option>
-            </select>
-            
-          </div>
 
           <div className={`links ${menuOpen ? 'mobile-menu active' : ''}`}>
-            <a href="http://localhost:3000/"><i className="fas fa-home"></i>Home</a>
-            <a href="http://localhost:3000/solicitados">Solicitados</a>
-            <a href="http://localhost:3000/usuarios">Usuarios</a>
-            <a href="http://localhost:3000/login">Login</a>
-            <a href="http://localhost:3000/register">Register</a>
-            
-            
+            <a href="http://localhost:3000/"><i className="fas fa-home"></i> Home</a>
+            { showHola && <a href="http://localhost:3000/solicitados">Solicitades</a>}
+            { showHola && <a href="http://localhost:3000/usuarios">Usuarios</a>}
+            { showNoToken && <a href="http://localhost:3000/login">Login</a>}
+            { showNoToken && <a href="http://localhost:3000/register">Register</a>}
+            { localToken && <button onClick={handleLogout}>Cerrar Sesión</button>}
 
-            {showHola && <h1>hola</h1>}
 
           </div>
 

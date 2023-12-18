@@ -125,8 +125,8 @@ body{
 
   .hamburger-menu svg {
     margin-top: .5em;
-    width: 24px;
-    height: 24px;
+    width: 50px;
+    height: 50px;
     fill: #000000;
   }
 
@@ -412,12 +412,20 @@ body{
 }
 
 .card .top-section {
-  height: 150px;
+  position: relative;
+  height: 170px;
   border-radius: 15px;
   display: flex;
   flex-direction: column;
   background: linear-gradient(45deg, rgb(4, 159, 187) 0%, rgb(80, 246, 255) 100%);
-  position: relative;
+}
+
+.card .top-section img {
+  position: absolute;
+  top: 59%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  max-width: 53%;
 }
 
 .card .top-section .border {
@@ -461,12 +469,11 @@ body{
   width: 100%;
   height: 30px;
   display: flex;
-  justify-content: space-between;
 }
 
 .card .top-section .icons .logo {
   height: 100%;
-  padding: 2px 0 2px 5px;
+  padding: 2px 0 2px 12px;
   color: white;
 }
 
@@ -491,7 +498,6 @@ body{
 }
 
 .card .bottom-section {
-  margin-top: 15px;
   padding: 10px 5px;
 }
 
@@ -502,12 +508,14 @@ body{
   color: white;
   text-align: center;
   letter-spacing: 2px;
+  background-color: #663891;
+  border-radius: 0px 0px 10px 10px;
+  margin: -9px 10px 5px;
 }
 
 .card .bottom-section .row {
   display: flex;
-  justify-content: space-between;
-  margin-top: 20px;
+  flex-direction: column;
 }
 
 .card .bottom-section .row .item {
@@ -527,8 +535,8 @@ body{
 }
 
 .card .bottom-section .row .item:nth-child(2) {
-  border-left: 1px solid rgba(255, 255, 255, 0.126);
-  border-right: 1px solid rgba(255, 255, 255, 0.126);
+  border-top: 2px solid rgba(255, 255, 255, 0.904);
+  border-bottom: 2px solid rgba(255, 255, 255, 0.945);
 }
 
 .contenedor-cards{
@@ -598,8 +606,7 @@ body{
 .contenedor-tecnologias-card{
     display: flex;
     flex-direction: column;
-    margin: 15px 0px 15px 0px;
-    margin: 15px 0px 5px 10px;
+    margin: 5px 5px 15px 5px;
 }
 
 .contenedor-tecnologias-card > :first-child{
@@ -628,12 +635,12 @@ body{
 
 .button-card{
     background-color: transparent;
-    border: solid 1px rgba(187, 11, 187, 0.842);
+    border: solid 2px rgba(187, 11, 187, 0.842);
     border-radius: 8px;
     padding: 10px;
 }
 .button-card:hover{
-    background-color: rgba(187, 11, 187, 0.842);
+   background-color: rgba(187, 11, 187, 0.842);
    color: white;
    transition: 0.5s;
 

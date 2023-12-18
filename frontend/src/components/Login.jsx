@@ -32,6 +32,7 @@ const Login = () => {
                 });
                 //document.cookie = `secretX=${response.data.secretX}`;
                 document.cookie = `token = ${response.data.token}`;
+                localStorage.setItem('token', JSON.stringify(response.data.token))
                 localStorage.setItem('user', JSON.stringify(response.data.user));
                 setTimeout(()=> {window.location.href = "/"}, 3000);
                 console.log(response.data.user.rol);

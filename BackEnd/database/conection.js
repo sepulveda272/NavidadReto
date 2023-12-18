@@ -17,6 +17,7 @@ const conection = async () => {
       NivelIngles: db.collection("NivelIngles"),
       Especialidad: db.collection("Especialidad"),
       Candidato: db.collection("Candidato"),
+      Tecnologia: db.collection("Tecnologia")
     };
     console.log("Coneccion Exitosa");
     return colections;

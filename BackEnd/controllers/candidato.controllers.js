@@ -21,9 +21,20 @@ export const getCandidatosS = async (req,res) =>{
     }
 }
 
+export const getCandidatosId = async (req,res) =>{
+    try {
+        const candidatoDB = (await conection()).Candidato;
+        const idObj = new ObjectId(req.params.id)
+        const candidato = await candidatoDB.find({_id:idObj}).toArray()
+        res.json(candidato)
+    } catch (error) {
+        console.log(error);
+    }
+}
+
 export const postCandidatos = async (req,res) =>{
     try {
-        const { nombre, apellido, Especialidad, NivelSeniority, Pais, Departamento, tecnologia, salario, NivelIngles, biografia, Stack } = req.body;
+        const { nombre, apellido, Especialidad, NivelSeniority, Pais, Departamento, Tecnologia, salario, NivelIngles, biografia, Stack } = req.body;
         const db = await conection();
       
         const especialidad = await db.Especialidad.findOne({ especialidad: Especialidad });
@@ -51,6 +62,17 @@ export const postCandidatos = async (req,res) =>{
             return res.status(404).json({ error: `Stack '${stackName}' no encontrado` });
         }
         }
+        
+        const tecnologias = [];
+
+        for (const tecnologiaName of Tecnologia) {
+            const tecnologia = await db.Tecnologia.findOne({ nombre: tecnologiaName });
+        if (tecnologia) {
+            tecnologias.push(tecnologia);
+        } else {
+            return res.status(404).json({ error: `tecnologia '${tecnologiaName}' no encontrado` });
+        }
+        }
 
         const nuevoCandidato = {
             nombre,
@@ -61,7 +83,7 @@ export const postCandidatos = async (req,res) =>{
                 Pais,
                 Departamento
             },
-            tecnologia,
+            Tecnologia: tecnologias,
             salario: Number(salario),
             NivelIngles: nivelIngles.nivel_ingles,
             biografia,

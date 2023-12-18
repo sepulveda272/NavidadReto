@@ -1,6 +1,6 @@
 import { Router } from "express";
 import { check } from "express-validator";
-import { solicitadoCandidato, getCandidatos, getCandidatosS, postCandidatos, deleteCandidato } from "../controllers/candidato.controllers.js";
+import { solicitadoCandidato, getCandidatos, getCandidatosS, postCandidatos, deleteCandidato, getCandidatosId } from "../controllers/candidato.controllers.js";
 import { validateJWT } from "../middleware/validate.jwt.js";
 import validateDocuments from "../middleware/validate.documents.js";
 import isAdminRole from "../middleware/validate.role.js";
@@ -8,6 +8,7 @@ import isAdminRole from "../middleware/validate.role.js";
 const routes = Router()
 
 routes.get("/", getCandidatos)
+routes.get("/:id", getCandidatosId)
 routes.get("/solicitados", [
     validateJWT,
     isAdminRole,
@@ -20,12 +21,11 @@ routes.post("/add",[
     check('NivelSeniority','NivelSeniority es obligatorio').not().isEmpty(),
     check('Pais','Pais es obligatorio').not().isEmpty(),
     check('Departamento','Departamento es obligatorio').not().isEmpty(),
-    check('tecnologia','Tecnologia es obligatorio').not().isEmpty(),
+    check('Tecnologia','Tecnologia es obligatorio').not().isEmpty(),
     check('salario','Salario es obligatorio').not().isEmpty(),
     check('NivelIngles','Nivel Ingles es obligatorio').not().isEmpty(),
     check('biografia','Biografia es obligatorio').not().isEmpty(),
-    validateJWT,
-    isAdminRole,
+    /* validateJWT, */
     validateDocuments
 ], postCandidatos)
 routes.delete("/:id", [

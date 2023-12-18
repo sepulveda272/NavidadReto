@@ -1,5 +1,6 @@
 import { ObjectId } from "mongodb";
 import { client, conection } from "../database/conection.js";
+import correoNotificacion from "../functions/notificacionCorreo.js"
 
 export const getSolicitudes = async (req,res) =>{
     try {
@@ -13,15 +14,17 @@ export const getSolicitudes = async (req,res) =>{
 
 export const postSolicitud = async (req,res) =>{
     try {
-        const { nombre, Apellido, empresa, email_contacto, telefono_contacto, Id_usuario } = req.body;
+        const { nombre, Apellido, empresa, email_contacto, telefono_contacto/* , Id_usuario */ } = req.body;
         const db = await conection();
 
-        const searchUsuario = new ObjectId(Id_usuario);
+        correoNotificacion(0, nombre, Apellido, empresa, email_contacto, telefono_contacto);
+
+       /*  const searchUsuario = new ObjectId(Id_usuario);
         const usuario = await db.Usuarios.findOne({ _id: searchUsuario });
 
         if (!usuario) {
         return res.status(404).json({ error: "usuario no encontrado" });
-        }
+        } */
 
         const nuevaSolicitud = {
             nombre,

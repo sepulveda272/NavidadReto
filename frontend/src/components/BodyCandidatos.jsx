@@ -26,23 +26,23 @@ export const BodyCandidatos = () => {
       <h2 className='bodyH2'>Potencia tu equipo con nuestros mejores talentos</h2>
 
       <div className='bodySearchers'>
-        <select className='searcher' id="especialidades">
+        {/* <select className='searcher' id="especialidades">
           <option value="">Especialidades</option>
           <option value="frontend">Desarrollo Frontend</option>
           <option value="backend">Desarrollo Backend</option>
           <option value="fullstack">Desarrollo Fullstack</option>
           <option value="devops">DevOps</option>
           <option value="security">Seguridad Informática</option>
-        </select>
+        </select> */}
 
-        <select className='searcher' id="pais">
+        {/* <select className='searcher' id="pais">
           <option value="">País</option>
           <option value="usa">Estados Unidos</option>
           <option value="canada">Canadá</option>
           <option value="uk">Reino Unido</option>
           <option value="france">Francia</option>
           <option value="germany">Alemania</option>
-        </select>
+        </select> */}
 
      {/*    <select className='searcher' id="opcion1">
           <option value="">Selecciona Opción 1</option>
@@ -50,37 +50,30 @@ export const BodyCandidatos = () => {
           <option value="valor2">Opción 2</option>
         </select> */}
 
-        <select className='searcher' id="nivelIngles">
+        {/* <select className='searcher' id="nivelIngles">
           <option value="">Nivel de Inglés</option>
           <option value="basico">Básico</option>
           <option value="intermedio">Intermedio</option>
           <option value="avanzado">Avanzado</option>
           <option value="fluido">Fluido</option>
           <option value="nativo">Nativo</option>
-        </select>
+        </select> */}
 
-        <select className='searcher' id="lenguajeProgramacion">
+        {/* <select className='searcher' id="lenguajeProgramacion">
           <option value="">Lenguaje de Programación</option>
           <option value="javascript">JavaScript</option>
           <option value="python">Python</option>
           <option value="java">Java</option>
           <option value="csharp">C#</option>
-        </select>
+        </select> */}
 
-        <input type="text" placeholder='  Ingrese su busqueda' style={{borderRadius: "10px"}}/>
+        {/* <input type="text" className='searcher' placeholder='Ingrese su busqueda' style={{borderRadius: "10px"}}/> */}
       </div>
 
       <div >
-        {/* {showHola && <div className='boton-post'>
-          <button className='boton-open' onClick={openModal}>Abrir Formulario</button>
-        </div>} */}
-
-        <div className='boton-post'>
+        {showHola && <div className='boton-post'>
           <button className='boton-open' ><a href="http://localhost:3000/registrocandidatos">Abrir Formulario</a></button>
-        </div>
-        
-      
-        
+        </div>}
         
       </div>
 
