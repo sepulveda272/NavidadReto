@@ -1,13 +1,56 @@
 import React from 'react'
 import '../assets/css/styless.css'
+import logoFooter from '../assets/img/mapa.png'
 
 export const FooterCandidatos = () => {
 
     return (
+   <>
       <div className="footer-contenedor">
         <div className="footer-contenido">
+              <img src={logoFooter} alt="" width={"100px"}/>
+
+              <div className='footer-column1'>
+                  <h3>Contacto</h3>
+                  <br />
+                  <br />
+                    <p>Colombia, Santander</p>
+                    
+                    <p>+57 3155667890</p>
+                    
+                    <p>campus@gmail.com</p>
+                    <br />
+                    <br />
+              </div>
+
+              <div className='footer-column2'>
+                  <h3>Empresa</h3>
+                  <br />
+                  <br />
+                    <p>Colombia, Santander</p>
+                    
+                    <p>+57 3155667890</p>
+                    
+                    <p>campus@gmail.com</p>
+                    <br />
+                    <br />
+              </div>
+
+              <div className='footer-column3'>
+                  <h3>Siguenos</h3>
+                  <br />
+                  <br />
+                    <p>Colombia, Santander</p>
+                   
+                    <p>+57 3155667890</p>
+                    
+                    <p>campus@gmail.com</p>
+                    <br />
+                    <br />
+              </div>
+
           
-              <table className="footer-tabla">
+          {/*     <table className="footer-tabla">
                 <tr className='encabezados-tabla'>
                   <td><strong>Contacto</strong></td>
                   <td><strong>Empresa</strong></td>
@@ -44,10 +87,12 @@ export const FooterCandidatos = () => {
                     
                   </td>
                 </tr>
-              </table>
+              </table> */}
           
         </div>
       </div>
+      
+   </>
     );
   
 }

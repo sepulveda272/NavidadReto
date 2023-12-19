@@ -170,26 +170,30 @@ export const CardCandidatos = () => {
                 { localToken && <div className='formulario-modal'>
                     <h2>Solicitar información del candidato</h2>
                     <div className='contenido-form-modal'>
-                        <form action="">
-                        <div className='p1'>
-                            <input type="text" placeholder='Nombre'  value={nombre} onChange={(e) => setNombre(e.target.value)} required/>
+                    <div className='contenedor-insert-candidato'>
+        
+                        <div className='contenido-insert-candidato'>
+                            <div class="wrapper">
+                                <form class="form-signin">       
+                                      <input type="text" placeholder='Nombre'/>
+
+                                      <input type="text" placeholder='Apellido'/>
+
+                                      <input type="text" placeholder='Empresa'/>
+
+                                      <input type="text" placeholder='Email de contacto'/>
+
+                                      <input type="text" placeholder='Telefono de contacto'/>
+                                    
+                                      <div className='boton-post-candidatos'>
+                                          <button className='button4' type='submit' onClick={postData} >Enviar Informacion</button>
+                                          <button className='button5' type='submit' ><a href="http://localhost:3000/">Cancelar Envio</a></button>
+                                      </div>
+                                </form>
+                            </div>
                         </div>
-                        <div>
-                            <input type="text" placeholder='Apellido' value={Apellido} onChange={(e) => setApellido(e.target.value)} required/>
-                        </div>
-                        <div>
-                            <input type="text" placeholder='Empresa' value={empresa} onChange={(e) => setEmpresa(e.target.value)} required/>
-                        </div>
-                        <div>
-                            <input type="text" placeholder='Email de contacto' value={email_contacto} onChange={(e) => setEmail_contacto(e.target.value)} required/>
-                        </div>
-                        <div>
-                            <input type="number" placeholder='Telefono de contacto' value={telefono_contacto} onChange={(e) => setTelefono_contacto(e.target.value)} required/>
-                        </div>
-                        <button className='btn btn-primary' type='button' data-text="Awesome" onClick={postData}>
-                          enviar
-                        </button>
-                        </form>
+                      
+                    </div>
                     </div>
                 </div>}
             </div>
@@ -233,7 +237,7 @@ export const CardCandidatos = () => {
                 ))}
               </div>
             </div>
-            <center>
+            <center className='botones-modal'>
               <button
                 type="button"
                 className="btn button-card"
@@ -245,7 +249,7 @@ export const CardCandidatos = () => {
               >
                 Ver candidato
               </button> 
-              {showHola && <button class="btn btn-danger eliminar" onClick={() => onDelete(data._id)}>Borrar</button>}
+              {showHola && <button class="btn btn-danger eliminar button-delete" onClick={() => onDelete(data._id)}>Borrar</button>}
             </center>
           </div>
         ))}

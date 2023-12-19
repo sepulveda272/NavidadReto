@@ -7,67 +7,93 @@
 }
 
 body{
-    background-color: #FDFAFC;
+    background-color: #E4E4DB;
     font-family: 'Poppins', sans-serif;
+    color: black;
 }
 
 /*todo --   NAVBAR */
-.container {
-  display: flex !important;
+
+.header{
+  
+  position: sticky;
+  top: 0;
+  left: 0;
+  width: 100%;
+  
+  background: black;    
+  display: flex;
+  justify-content: center;
   align-items: center;
-  padding: .5em;
-  background-color: rgb(255, 255, 255);
+ 
+  z-index: 200;
+
 }
 
-.container img {
-  padding-left: 7em;
+.navbar{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  width: 100%;
+  
 }
-
-.container a {
-  color: black;
-  text-decoration: none;
-  font-size: 15px;
-}
-
-.container a:hover {
-  text-decoration: underline;
-  color: blueviolet;
-}
-
-.navbar-header {
-  margin-left: 2em;
-} 
-
-.navbar-header a {
-  margin-left: 20px;
-}
-
-.links a {
-  text-decoration: none;
-  margin-left: 20px;
-}
-
-.links .en {
-  padding: .3em;
-  background-color: #6519ac;
+.navbar a{
+  position: relative;
+  font-size: 17px !important;
   color: white;
-  border-radius: 6px;
-  width: 1px;
+  margin-right: 30px;
+  text-decoration: none;
+  
+}
+.hola{
+  transition: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+.navbar a::after{
+  border-radius: 27px ;
+  background:white ;
+  box-shadow:  7px -7px 15px #523939, -7px 7px 15px #ffe5e5 ;
+  content: "";
+  position: absolute;
+  left: 0;
+  width: 100%;
   height: 2px;
+  bottom: -5px;
+  transform: translateY(10px);
+  opacity: 0;
+  transition: .5s ease;
+  
+}
+.navbar a:hover:after{
+  transform: translateY(0);
+  opacity: 1;
 }
 
 
-
-.custom-select {
-  padding: 8px;
-  font-size: 15px;
-  border: black solid 1px ;
-  border: 1px;
-  background-color: #fff;
-  color: #000000;
-  width: 96px;
-  font-family: 'Poppins', sans-serif;
+.navbar-inverse{
+  width: 100%;
+  height: 100%;
 }
+
+.contenedor-hamburguer-menu {
+  width: 100%;
+  height: 100%;
+  display: flex ;
+  flex-direction: row ;
+  justify-content: center;
+  align-items: center;
+  
+
+}
+.contenido-hamburguer-menu{
+  display: flex;
+  flex: 2;
+  align-items: center;
+  justify-content: center;
+  
+
+}
+
 
 
 .hamburger-menu{
@@ -75,8 +101,9 @@ body{
 }
 @media screen and (max-width: 868px) {
   .container {
-    flex-direction: column;
+    flex-direction: row;
     align-items: center; 
+    justify-content: space-between;
     padding: 1em;
   }
 
@@ -98,10 +125,10 @@ body{
 
   .links {
     display: none;
-    flex-direction: column;
+    flex-direction: row;
   }
  .links .en {
-    background-color: #6519ac;
+    background-color: #ffffff;
     color: white;
     border-radius: 6px;
     width: auto; 
@@ -111,9 +138,36 @@ body{
 
   .links.active {
     display: flex;
-    margin-top: 10px;
-    transition: max-height 0.3s ease;
+    
+    
   }
+  .contenedor-hamburguer-menu {
+    display: flex ;
+    flex-direction: row ;
+    justify-content: center;
+    align-items: center;
+   
+
+  }
+
+  .contenedor-hamburguer-menu .active{
+    display: flex ;
+    flex-direction: row ;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+  .contenido-hamburguer-menu{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+  }
+  .contenedor-hamburguer-menu img{
+    width: 70px;
+    margin: 8px;
+  }
+
 
   .hamburger-menu {
     display: block;
@@ -127,21 +181,24 @@ body{
     margin-top: .5em;
     width: 50px;
     height: 50px;
-    fill: #000000;
+    fill: #ffffff;
   }
 
-.mobile-menu {
-  display: none;
-  flex-direction: column;
-  text-align: center;
-  overflow: hidden;
-  transition: height 0.3s ease; /* Transición solo para la altura */
-  height: 0; /* Altura inicial 0 para ocultar el menú */
+
+.contenedor-menu-responsive{
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
+
+
 .mobile-menu.active {
-  display: flex;
-  height: auto; /* Altura automática para mostrar el contenido */
+  display: flex ;
+  height: auto;
+  gap: 20px;
+  padding: 5px;
+   /* Altura automática para mostrar el contenido */
 }
 
 
@@ -156,7 +213,7 @@ body{
 
 .bodyMain {
     position: relative;
-    background-image: url("https://www.consultoragestal.com/wp-content/uploads/2023/06/bg-header-candidatos-1.webp");
+    background-image: url("../img/universidad-estudiar-1024x683.jpg");
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
@@ -171,7 +228,7 @@ body{
     right: 0;
     bottom: 0;
     left: 0;
-    background-color: rgba(21, 4, 68, 0.5);
+    background-color: rgba(29, 21, 21, 0.918);
 }
 
 .bodyMiniMain {
@@ -292,6 +349,17 @@ body{
 
 }
 
+.boton-open:hover, .boton-open a:hover{
+  background-color: #6519ac;
+  color: white;
+  transition: 0.5s;
+}
+
+.boton-open a{
+  text-decoration: none;
+  color: black;
+}
+
 .contenedor-insert-candidato{
   width: 100%;
   height: 100%;
@@ -307,7 +375,7 @@ body{
 .form-signin {
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 20px;
   max-width: 800px;
   padding: 15px 35px 45px;
   margin: 0 auto;
@@ -356,9 +424,10 @@ body{
   justify-content: center;
   align-items: center;
   gap: 20px;
+  text-decoration: nonde;
 }
 
-.button4[type='submit'] {
+.button4{
   padding: 10px 20px;
   margin-top: 20px;
   font-size: 16px;
@@ -369,7 +438,13 @@ body{
   cursor: pointer;
   outline: none;
 } 
-.button5[type='submit'] {
+
+.button4:hover, .button4 a:hover{
+  background-color: #6519ac ;
+  color: white;
+  transition: 0.5;
+}
+.button5 {
   padding: 10px 20px;
   margin-top: 20px;
   font-size: 16px;
@@ -383,6 +458,12 @@ body{
 
 .button5 a{
   color: black;
+}
+
+.button5:hover, .button5 a:hover{
+  background-color: #ac1919 ;
+  color: white;
+  transition: 0.5;
 }
 
 #select-especialidad, #select-nivel-seniority, #select-nivel-ingles{
@@ -633,17 +714,31 @@ body{
     
 }
 
+.botones-modal{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+}
+
 .button-card{
     background-color: transparent;
     border: solid 2px rgba(187, 11, 187, 0.842);
     border-radius: 8px;
     padding: 10px;
+    color: white;
 }
 .button-card:hover{
    background-color: rgba(187, 11, 187, 0.842);
    color: white;
    transition: 0.5s;
 
+}
+
+.button-delete{
+  padding: 10px;
+  background-color: transparent;
 }
 
 @media (max-width: 1540px){
@@ -658,49 +753,38 @@ body{
 /*todo --   FOOTER */
 
 .footer-contenedor{
-  position: absolute;
-  background-image: url(https://img3.wallspic.com/crops/6/1/7/5/3/135716/135716-ilustracion_de_galaxia_purpura_y_azul-3840x2160.jpg);
-  background-size: cover;
-  background-repeat: no-repeat;
   width: 100%;
+  height: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
   background-color: #20184a;
-  height: 25rem;
   margin-top: 5rem;
   color: white;
-  
+  overflow: hidden;
 }
 
 /* Footer.css (Estilos CSS para el footer) */
 
 .footer-contenido {
-  position: relative;
+ 
   background-color: rgba(0, 0, 0, 0.534);
   width: 100%;
   height: 100%;
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
   align-items: center;
-  overflow-x: auto;
+  flex-wrap: wrap;
+  padding: 30px 20px 30px 2px;
   
 }
 
-.footer-tabla {
-  width: 100%;
-  max-width: 1200px; /* Ajusta el ancho máximo según sea necesario */
-  margin: 0 auto; /* Centra la tabla en dispositivos grandes */
+.footer-contenido img{
+  width: 400px;
 }
 
-.encabezados-tabla{
-  font-size: 20px;
-}
 
-.columna-contacto, .columna-empresa, .columna-siguenos {
-  padding: 20px;
-  box-sizing: border-box; /* Evita que el padding afecte el ancho total */
-}
+
 
 /* Estilos para dispositivos pequeños */
 @media screen and (max-width: 600px) {

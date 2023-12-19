@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import logo from '../assets/img/social.png';
+import logo from '../assets/img/logo-campus-blanco.png';
 import '../assets/css/styless.css';
 
 export const NavbarCandidatos = () => {
@@ -33,34 +33,38 @@ export const NavbarCandidatos = () => {
   };
 
   return (
-    <div className='Navbar1'>
-      <div className="navbar-inverse" role="navigation">
-        <div className={`container ${menuOpen ? 'mobile-menu active' : ''}`}>
-          <img src={logo} alt='no sirve' width="200px" />
-          
+    <>
+     <header className="header">
+          <nav className="navbar" id="main-navbar">
+            <div className='contenedor-hamburguer-menu'>
+              <img src={logo} alt=""  width={"100px"}/>
 
-          <div className={`links ${menuOpen ? 'mobile-menu active' : ''}`}>
-            <a href="http://localhost:3000/"><i className="fas fa-home"></i> Home</a>
-            { showHola && <a href="http://localhost:3000/solicitados">Solicitades</a>}
-            { showHola && <a href="http://localhost:3000/usuarios">Usuarios</a>}
-            { showNoToken && <a href="http://localhost:3000/login">Login</a>}
-            { showNoToken && <a href="http://localhost:3000/register">Register</a>}
-            { localToken && <button onClick={handleLogout}>Cerrar Sesión</button>}
+              <div className='contenido-hamburguer-menu'>
+                <div className={`links ${menuOpen ? 'mobile-menu active' : ''}`}>
+                      <a href="http://localhost:3000/"><i className=""></i> Home</a>
+                      { showHola && <a href="http://localhost:3000/solicitados">Requested</a>}
+                      { showHola && <a href="http://localhost:3000/usuarios">Users</a>}
+                      { showNoToken && <a href="http://localhost:3000/login">Login</a>}
+                      { showNoToken && <a href="http://localhost:3000/register">Register</a>}
+                   
+                  </div>
+                  { localToken && <a href='#' onClick={handleLogout}>Log out</a>}
+                  <div className="hamburger-menu" onClick={handleMenuClick}>
+                      <svg xmlns="http://www.w3.org/2000/svg" className="icon icon-tabler icon-tabler-menu-2" width="32" height="32" viewBox="0 0 24 24" strokeWidth="1.5" stroke="white" fill="none" strokeLinecap="round" strokeLinejoin="round">
+                        <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                        <path d="M4 6l16 0" />
+                        <path d="M4 12l16 0" />
+                        <path d="M4 18l16 0" />
+                      </svg>
+                  </div>
+              </div>
+              
+            </div>
+          </nav>
 
-
-          </div>
-
-        
-          <div className="hamburger-menu" onClick={handleMenuClick}>
-            <svg xmlns="http://www.w3.org/2000/svg" className="icon icon-tabler icon-tabler-menu-2" width="32" height="32" viewBox="0 0 24 24" strokeWidth="1.5" stroke="#000000" fill="none" strokeLinecap="round" strokeLinejoin="round">
-              <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-              <path d="M4 6l16 0" />
-              <path d="M4 12l16 0" />
-              <path d="M4 18l16 0" />
-            </svg>
-          </div>
-        </div>
-      </div>
-    </div>
+      </header>
+    
+    </>
+    
   );
 };
