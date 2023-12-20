@@ -58,9 +58,8 @@ const Register = () => {
 
                         <div className="content">
                             <div className="text">
-                                <h2 >Welcome to website</h2>
-                                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Cumque, beatae! Tempore ipsa iure ullam totam hic illo itaque reiciendis nulla, ipsam minus iste aut tempora?
-                                    Iure quia architecto doloribus nostrum.</p>
+                                <h2 >Crear Nueva Cuenta</h2>
+                                <p>¡Únete a nosotros! Completa el siguiente formulario para crear tu nueva cuenta.</p>
 
                             </div>
                         </div>
@@ -93,7 +92,7 @@ const Register = () => {
                                 <div className="user-box">
                                     <input type="text" id="TipoPersona" value={tipo_usuario} onChange={(e) => setTipo_usuario(e.target.value)}  required />
                                     <label htmlFor="TipoPersona" className="label">
-                                        Persona(Natural/Empresa)
+                                        Empresa
                                     </label>
                                 </div>
                                 <div className="user-box">

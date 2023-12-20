@@ -11,12 +11,12 @@ const transporter = nodemailer.createTransport({
 });
 // Configurar el correo electrónico
 
-export default function (cualNotificacion, nombre, Apellido, empresa, email_contacto, telefono_contacto) {
+export default function (cualNotificacion, nombre, empresa, email_contacto, telefono_contacto) {
     let notificaciones = [
         {
-            subject: "Nuevo formulario de contacto enviado",
-            titulo : "Nuevo Solicitud enviada",
-            notificacion: `Hola administrador. Un nuevo formulario de solicitud se ha enviado. Aquí están los datos. Nombre: " ${nombre} ", Apellido: " ${Apellido} ", Empresa: " ${empresa} ", Email: " ${email_contacto} ", Telefono: " ${telefono_contacto} .` 
+            subject: "Nuevo formulario de solicitud enviado",
+            titulo : "Nueva Solicitud enviada",
+            notificacion: `Hola. Un nuevo formulario de solicitud se ha enviado. Aquí están los datos. Nombre: "${nombre}", Empresa: "${empresa}", Email: "${email_contacto}", Telefono: "${telefono_contacto}.` 
         }
     ]
 
@@ -38,8 +38,8 @@ export default function (cualNotificacion, nombre, Apellido, empresa, email_cont
     
             .claseBoton{
                 width: 30%;
-                    background-color: #fcae3b;
-                    border: 2px solid #fcae3b;
+                    background-color: #F4B422;
+                    border: 2px solid #F4B422;
                     color: black; 
                     padding: 16px 32px;
                     text-align: center;
@@ -73,19 +73,22 @@ export default function (cualNotificacion, nombre, Apellido, empresa, email_cont
         <div style="width: 100%; background-color: #e3e3e3;">
             <div style="padding: 20px 10px 20px 10px;">
                 <!-- Imagen inicial -->
-                <div style="background-color: #000000; padding: 10px 0px 10px 0px; width: 100%; text-align: center;">
+                <div style="background-color: #000087; padding: 10px 0px 10px 0px; width: 100%; text-align: center;">
                     <img src="cid:logo-vertical-campus" alt="" style="width: 200px; height: 60px;">
                 </div>
                 <!-- Imagen inicial -->
     
                 <!-- Contenido principal -->
                 <div style="background-color: #ffffff; padding: 20px 0px 5px 0px; width: 100%; text-align: center;">
-                    <h1>${notificaciones[cualNotificacion].titulo}</h1>
-                    <p>${notificaciones[cualNotificacion].notificacion}</p>
+                    <h1 style="color: #5E3AE2;">${notificaciones[cualNotificacion].titulo}</h1>
+                    <p><strong>Nombre:</strong> ${nombre}</p>
+                    <p><strong>Empresa:</strong> CampusLands</p>
+                    <p><strong>Email de Contacto:</strong> ${email_contacto}</p>
+                    <p><strong>Teléfono de Contacto:</strong> ${telefono_contacto}</p>
     
                     <!-- Gracias -->
                     <p>Gracias por tu tiempo.</p>
-                    <p style="margin-bottom: 50px;"><i>Atentamente:</i><br>Equipo CampusLands</p>
+                    <p style="margin-bottom: 50px;"><i style="color: #2CAAFF;">Atentamente:</i><br>${empresa}</p>
     
                     <!-- Botón -->
                     <a class="claseBoton" href="http://localhost:3000">Candidatos</a>
@@ -93,7 +96,7 @@ export default function (cualNotificacion, nombre, Apellido, empresa, email_cont
                 <!-- Contenido principal -->
     
                 <!-- Footer -->
-                <div style="background-color: #282828; color: #ffffff; padding: 5px 0px 0px 0px; width: 100%; text-align: center;">
+                <div style="background-color: #000087; color: #ffffff; padding: 5px 0px 0px 0px; width: 100%; text-align: center;">
                     <!-- Redes sociales -->
                     <a href="https://www.facebook.com/Campuslands" class="contA"><img src="cid:fb" class="imag" /></a>
                     <a href="https://www.instagram.com/campuslands/" class="contA"><img src="cid:ig" class="imag" /></a>
@@ -101,13 +104,13 @@ export default function (cualNotificacion, nombre, Apellido, empresa, email_cont
                     <a href="mailto:CampusLands@gmail.com" class="contA"><img src="cid:em" class="imag" /></a>
                     <!-- Redes sociales -->
     
-                    <h4>Soporte</h4>
-                    <p style="font-size: 13px; padding: 0px 20px 0px 20px;">
+                    <h4 style="color: #e3e3e3;">Soporte</h4>
+                    <p style="font-size: 13px; padding: 0px 20px 0px 20px; color: #e3e3e3;">
                         Comunícate con nosotros por los siguientes medios:<br>
                         Correo: <a class="afooter" href="mailto:CampusLands@gmail.com">CampusLands@gmail.com</a><br>
                         Whatsapp: <a class="afooter" href="https://wa.me/573118807659">+57 311 880 7659</a><br>
                     </p>
-                    <p style="background-color: black; padding: 10px 0px 10px 0px; font-size: 12px !important;">
+                    <p style="background-color: #000087; padding: 10px 0px 10px 0px; font-size: 12px !important;">
                         © 2023 CampusLands, todos los derechos reservados.
                     </p>
                 </div>
@@ -123,8 +126,8 @@ export default function (cualNotificacion, nombre, Apellido, empresa, email_cont
 
     transporter.verify().then(console.log).catch(console.error);
     transporter.sendMail({
-    from: '"Pretwor" <youremail@gmail.com>', // sender address
-    to: email_contacto, // list of receivers
+    from: '"CampusLands" <youremail@gmail.com>', // sender address
+    to: "sepulvedarojasjuandavid@gmail.com", // list of receivers
     subject: notificaciones[cualNotificacion].subject, // Subject line
     text: notificaciones[cualNotificacion].notificacion, // plain text body
     html: mensajeHtml, // html body

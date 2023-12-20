@@ -15,7 +15,7 @@ export const InsertCandidatos = () => {
     const [NivelIngles,setNivelIngles] = useState('');
     const [biografia,setBiografia] = useState('');
     const [Stack,setStack] = useState([]);
-    const [setError] = useState('');
+    const [erro,setError] = useState('');
 
     const postData = (e) => {
         e.preventDefault();

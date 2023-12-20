@@ -9,11 +9,10 @@ export const CardCandidatos = () => {
   const [apiData, setApiData] = useState([]);
   const [oneData, setOneData] = useState([]);
   const [nombre,setNombre] = useState('');
-  const [Apellido,setApellido] = useState('');
   const [empresa,setEmpresa] = useState('');
   const [email_contacto,setEmail_contacto] = useState('');
   const [telefono_contacto,setTelefono_contacto] = useState('');
-  const [setError] = useState('');
+  const [error,setError] = useState('');
 
 
   useEffect(() => {
@@ -69,14 +68,13 @@ export const CardCandidatos = () => {
   const postData = (e) => {
     e.preventDefault();
   
-    if (!nombre || !Apellido || !empresa || !email_contacto || !telefono_contacto) {
+    if (!nombre || !empresa || !email_contacto || !telefono_contacto) {
       setError(alert("Por favor, complete todos los campos obligatorios."));
       return;
     }
   
     axios.post("http://localhost:8003/solicitudes/add", {
       nombre,
-      Apellido,
       empresa,
       email_contacto,
       telefono_contacto,
@@ -175,19 +173,21 @@ export const CardCandidatos = () => {
                         <div className='contenido-insert-candidato'>
                             <div class="wrapper">
                                 <form class="form-signin">       
-                                      <input type="text" placeholder='Nombre'/>
-
-                                      <input type="text" placeholder='Apellido'/>
-
-                                      <input type="text" placeholder='Empresa'/>
-
-                                      <input type="text" placeholder='Email de contacto'/>
-
-                                      <input type="text" placeholder='Telefono de contacto'/>
-                                    
+                                <div className='p1'>
+                                  <input type="text" placeholder='Nombre'  value={nombre} onChange={(e) => setNombre(e.target.value)} required/>
+                                </div>
+                                <div>
+                                  <input type="text" placeholder='Empresa' value={empresa} onChange={(e) => setEmpresa(e.target.value)} required/>
+                                </div>
+                                <div>
+                                  <input type="email" placeholder='Email de contacto' value={email_contacto} onChange={(e) => setEmail_contacto(e.target.value)} required/>
+                                </div>
+                                <div>
+                                  <input type="number" placeholder='Telefono de contacto' value={telefono_contacto} onChange={(e) => setTelefono_contacto(e.target.value)} required/>
+                                </div>
                                       <div className='boton-post-candidatos'>
-                                          <button className='button4' type='submit' onClick={postData} >Enviar Informacion</button>
-                                          <button className='button5' type='submit' ><a href="http://localhost:3000/">Cancelar Envio</a></button>
+                                          <button className='button4' type='button' onClick={postData} >Enviar Informacion</button>
+                                          {/* <button className='button5' type='submit' ><a href="http://localhost:3000/">Cancelar Envio</a></button> */}
                                       </div>
                                 </form>
                             </div>

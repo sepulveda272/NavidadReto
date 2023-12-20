@@ -59,8 +59,8 @@ export const BodyUsuarios = () => {
     <div>
         <div className='bodyMain'>
             <div className='bodyMiniMain'>
-                <h1>ESTE ES UN TITULO</h1>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas, ad! Ipsam cum dolor suscipit tempore aliquam praesentium eum asperiores nostrum minus voluptate voluptatibus sunt earum, laborum quis mollitia assumenda maxime?Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ipsam unde nobis amet quasi sapiente. Impedit nostrum doloribus rem! Mollitia porro beatae ex sed repudiandae unde, autem eos consequuntur consequatur iste.</p>
+            <h1>CampusLands</h1>
+                <p>En CampusLands, creemos en el poder de la colaboración. Fomentamos un ambiente en el que los estudiantes no solo aprenden de los instructores, sino también unos de otros. Los proyectos colaborativos y las actividades grupales cultivan habilidades de trabajo en equipo, mientras que los eventos de networking proporcionan oportunidades para establecer conexiones valiosas en la industria. La comunidad de CampusLands se extiende más allá de las aulas, creando una red sólida de profesionales en ascenso.</p>
             </div>
         </div>
         <div className='contenedor-cards'>

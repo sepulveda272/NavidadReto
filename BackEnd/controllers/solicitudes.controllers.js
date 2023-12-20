@@ -14,10 +14,10 @@ export const getSolicitudes = async (req,res) =>{
 
 export const postSolicitud = async (req,res) =>{
     try {
-        const { nombre, Apellido, empresa, email_contacto, telefono_contacto/* , Id_usuario */ } = req.body;
+        const { nombre, empresa, email_contacto, telefono_contacto/* , Id_usuario */ } = req.body;
         const db = await conection();
 
-        correoNotificacion(0, nombre, Apellido, empresa, email_contacto, telefono_contacto);
+        correoNotificacion(0, nombre, empresa, email_contacto, telefono_contacto);
 
        /*  const searchUsuario = new ObjectId(Id_usuario);
         const usuario = await db.Usuarios.findOne({ _id: searchUsuario });
@@ -28,7 +28,6 @@ export const postSolicitud = async (req,res) =>{
 
         const nuevaSolicitud = {
             nombre,
-            Apellido,
             empresa,
             email_contacto,
             telefono_contacto/* ,

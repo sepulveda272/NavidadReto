@@ -66,9 +66,8 @@ const Login = () => {
 
                         <div className="content">
                             <div className="text">
-                                <h2 >Welcome to website</h2>
-                                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Cumque, beatae! Tempore ipsa iure ullam totam hic illo itaque reiciendis nulla, ipsam minus iste aut tempora?
-                                    Iure quia architecto doloribus nostrum.</p>
+                                <h2 >Iniciar Sesión</h2>
+                                <p>¡Bienvenido de vuelta! Por favor, ingresa tus credenciales para acceder a tu cuenta.</p>
 
                             </div>
                         </div>
